@@ -3,7 +3,7 @@ require 'spec_helper'
 
 describe "Static pages" do
 
-	subject { page }
+	subject { page } # makes page the default subject of the test example
 	let(:base_title) { 'RoR Sample App' }
 
 	describe "Home page" do
