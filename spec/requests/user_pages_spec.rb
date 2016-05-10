@@ -13,4 +13,15 @@ describe "User pages" do
 		# OR it { should have_title('Signup') }
 	end
 
+	# Testing user profile page
+	describe "profile page" do
+		# byebug
+		# let(:user) { User.create(name: "Example User", email: "user@example.com", password: "foobar", password_confirmation: "foobar") }
+		let(:user) { FactoryGirl.create(:user) }
+		before { visit user_path(user) }
+
+		it { should have_content(user.name) }
+		it { should have_title(user.name) }
+	end
+
 end
