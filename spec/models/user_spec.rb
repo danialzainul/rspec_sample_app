@@ -18,6 +18,11 @@ describe User do
 
 	it { should respond_to(:authenticate) }
 
+	describe "remember_token" do
+		before { @user.save }
+		it { expect(@user.remember_token).not_to be_blank }
+	end
+
 	# testing for presence
 	describe "when user name is NOT present" do
 		before { @user.name = " " }
