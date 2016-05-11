@@ -11,10 +11,24 @@ class UsersController < ApplicationController
   def create 
     @user = User.new(user_params)
     if @user.save
-        flash[:success] = "Welcome to the Sample App!"
-        redirect_to @user
+      flash[:success] = "Welcome to the Sample App!"
+      redirect_to @user
     else
-        render 'new'
+      render 'new'
+    end
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = current_user
+    @user.update(user_params)
+    if @user.save
+      redirect_to @user, notice: "Profile updated successfully!"
+    else
+      render :edit
     end
   end
 
