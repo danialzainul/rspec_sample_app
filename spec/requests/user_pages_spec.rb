@@ -13,6 +13,7 @@ describe "User pages" do
 		# OR it { should have_title('Signup') }
 	end
 
+
 	# Testing user profile page
 	describe "profile page" do
 		# byebug
@@ -23,6 +24,7 @@ describe "User pages" do
 		it { should have_content(user.name) }
 		it { should have_title(user.name) }
 	end
+
 
 	# Testing user signup page
 	describe "signup page" do
@@ -63,14 +65,14 @@ describe "User pages" do
 			it { should have_content('error') }
 		end
 
-		# describe "after saving the user" do
-		# 	before { click_button submit }
-		# 	let(:user) { User.find_by(email: 'michael@example.com') }
-		# 	# let(:user) { FactoryGirl.create(:user) }
+		describe "after saving the user" do
+			before { click_button submit }
+			let(:user) { User.find_by(email: 'michael@example.com') }
+			# let(:user) { FactoryGirl.create(:user) }
 
-  #     it { should have_title(user.name) }
-  #     it { should have_selector('div.alert.alert-success', text: 'Welcome') }
-		# end
+      it { should have_title(user.name) }
+      it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+		end
 
 	end # -- describe "signup" do --
 
