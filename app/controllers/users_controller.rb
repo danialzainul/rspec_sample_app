@@ -23,9 +23,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = current_user
-    @user.update(user_params)
-    if @user.save
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      @user.save
       redirect_to @user, notice: "Profile updated successfully!"
     else
       render :edit
